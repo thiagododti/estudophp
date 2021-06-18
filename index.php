@@ -23,6 +23,7 @@
         if($sql->rowCount() > 0 ){
             $lista = $sql->fetchAll(PDO::FETCH_ASSOC);
         }
+        
         ?>
         <table border="1" width="100%">
             <tr>
