@@ -17,7 +17,11 @@
                 <a class="nav-link" href="cadastro.php">Cadastrar</a>
             </li>
         </ul>
-        <?php require 'dbconection.php'; 
+        <?php 
+        
+        require 'dbconection.php';
+        require 'dao/UsuarioDaoMysql.php';
+
         $lista = [];
         $sql = $pdo->query("SELECT * FROM CADASTRO");
         if($sql->rowCount() > 0 ){
