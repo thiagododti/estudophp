@@ -24,32 +24,30 @@
             <div class="col-sm">
                 <?php 
                     require 'dbconection.php';
+                    require 'dao/UsuarioDaoMysql.php';
+                    $usuarioDao = new UsuarioDaoMysql($pdo);
 
+
+                    $usuario = false;
                     $id = filter_input(INPUT_GET, 'id');
                     if($id){
-                        $sql = $pdo->prepare("SELECT * FROM CADASTRO WHERE id = ?");
-                        $sql->bindValue(1, $id);
-                        $sql->execute();
 
-                        if($sql->rowCount() > 0){
-                            $info = $sql->fetch(PDO::FETCH_ASSOC);
-                        }else{
-                            header("Location:index.php");
-                        }
-                    }else{
-                        header("Location:index.php");
+                        $usuario = $usuarioDao->findById($id);
+                    }
+                    if($usuario === false){
+                        header("Location: index.php");
                         exit;
                     }
                 ?>
                 <form method="POST" action="editar_action.php">
-                    <input type="hidden" name="id" value="<?=$info['id'];?>" />
+                    <input type="hidden" name="id" value="<?=$usuario->getId();?>" />
                     <div class="form-group">
                         <label>Nome</label>
-                        <input type="text" class="form-control" name="nome" value="<?=$info['nome'];?>">
+                        <input type="text" class="form-control" name="nome" value="<?=$usuario->getNome();?>">
                     </div><br>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" class="form-control" name="email" value="<?=$info['email'];?>">
+                        <input type="email" class="form-control" name="email" value="<?=$usuario->getEmail();?>">
                     </div><br>
                     <input type="submit" class="btn btn-primary" value="Alterar"/>
                 </form>
