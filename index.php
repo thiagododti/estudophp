@@ -22,13 +22,10 @@
         require 'dbconection.php';
         require 'dao/UsuarioDaoMysql.php';
 
-        $lista = [];
-        $sql = $pdo->query("SELECT * FROM CADASTRO");
-        if($sql->rowCount() > 0 ){
-            $lista = $sql->fetchAll(PDO::FETCH_ASSOC);
-        }
-        
+        $usuarioDao = new UsuarioDaoMysql($pdo);
+        $lista = $usuarioDao->findAll();        
         ?>
+
         <table border="1" width="100%">
             <tr>
                 <th>ID</th>
@@ -38,12 +35,12 @@
             </tr>
             <?php foreach($lista as $usuario): ?>
                 <tr>
-                    <td><?=$usuario['id'];?></td>
-                    <td><?=$usuario['nome'];?></td>
-                    <td><?=$usuario['email'];?></td>
+                    <td><?=$usuario->getId();?></td>
+                    <td><?=$usuario->getNome();?></td>
+                    <td><?=$usuario->getEmail();?></td>
                     <td>
-                        <a class="btn btn-primary" href="editar.php?id=<?=$usuario['id'];?>">Alterar</a>
-                        <a class="btn btn-primary" href="excluir.php?id=<?=$usuario['id'];?>">Excluir</a>
+                        <a class="btn btn-primary" href="editar.php?id=<?=$usuario->getId();?>">Alterar</a>
+                        <a class="btn btn-primary" href="excluir.php?id=<?=$usuario->getId();?>">Excluir</a>
                     </td>
                 </tr>
             <?php endforeach ?>
