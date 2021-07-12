@@ -40,7 +40,7 @@
                     <td><?=$usuario->getEmail();?></td>
                     <td>
                         <a class="btn btn-primary" href="editar.php?id=<?=$usuario->getId();?>">Alterar</a>
-                        <a class="btn btn-primary" href="excluir.php?id=<?=$usuario->getId();?>">Excluir</a>
+                        <a class="btn btn-primary" href="excluir.php?id=<?=$usuario->getId();?>" onclick="return confirm(' Tem certeza que deseja excluir?')">Excluir</a>
                     </td>
                 </tr>
             <?php endforeach ?>
