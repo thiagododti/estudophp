@@ -1,0 +1,5 @@
+S - Snigle Responsibility Principle ( Principio da responsabilidade única)
+O - Open-Closed Principle ( Principio aberto-fechado)
+L - Liskov Substitution Principle ( Principio da substituição de Liskov)
+I - Interface segregation principle ( Principio da segregação da interface)
+D - Dependency inversion principle ( Principio da inversão da dependência)
