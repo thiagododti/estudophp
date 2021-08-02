@@ -2,8 +2,7 @@
 
 namespace \matematica;
 
-class Basica
-{
+class Basica {
 
     public function somar($x, $y)
     {

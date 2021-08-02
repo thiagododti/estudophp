@@ -3,5 +3,5 @@
 require 'autoloader.php';
 
 
-$m = new Matematica();
+$m = new matematica\Basica();
 echo $m->somar(10, 20);
