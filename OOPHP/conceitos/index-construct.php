@@ -4,7 +4,6 @@ namespace Funcionario;
 
 class Funcionario
 {
-
     public int $id;
     public string $nome;
 
@@ -21,11 +20,9 @@ class Funcionario
     }
 }
 
-
 $func = new Funcionario(1);
 
 echo $func->nome;
-
 
 //EM RESUMO O CONTRUTOR E UMA FUNCAO QUE SEMPRE EXECUTA QUANDO UM OBJETO É CRIADO.
 //NESSE CASO SEMPRE QUE EU CRIAR UM OBJETO FUNCIONARIO PASSANDO UM 1 DELE

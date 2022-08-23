@@ -4,11 +4,8 @@ namespace Calculadora;
 
 class Calculadora
 {
-
     private int $valor1;
     private int $valor2;
-
-
 
     /**
      * Set the value of valor1
